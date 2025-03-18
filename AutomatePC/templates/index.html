@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VoiceLauncher</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      .button {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        font-size: 18px;
+        color: white;
+        background-color: #007bff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🎙️ VoiceLauncher</h1>
+    <p>
+      Haz clic en un botón o di "Alexa [comando]" para abrir una aplicación.
+    </p>
+    {% for name, _ in programs.items() %}
+    <a href="{{ url_for('open_program', program=name) }}" class="button"
+      >{{ name }}</a
+    >
+    {% endfor %}
+  </body>
+</html>
